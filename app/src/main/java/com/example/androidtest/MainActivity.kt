@@ -1,5 +1,6 @@
 package com.example.androidtest
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -16,6 +17,17 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(applicationContext, "onCreate", Toast.LENGTH_SHORT).show()
         Log.i("MyLog", "onCreate")
         setContentView(R.layout.activity_main)
+        if (savedInstanceState != null) {
+            counter = savedInstanceState.getInt("MyInt", 0)
+            findViewById<TextView>(R.id.counterView).text = counter.toString()
+        }
+        val sharedPrefs = getPreferences(Context.MODE_PRIVATE)
+        counter = sharedPrefs.getInt("counter", 0)
+    }
+
+    override fun onSaveInstanceState(savedInstanceState: Bundle) {
+        savedInstanceState.putInt("MyInt", counter)
+        super.onSaveInstanceState(savedInstanceState)
     }
 
     override fun onStart() {
@@ -56,6 +68,10 @@ class MainActivity : AppCompatActivity() {
 
     fun up(view: View) {
         counter++
+        val shPr = getPreferences(Context.MODE_PRIVATE)
+        val editor = shPr.edit()
+        editor.putInt("counter", counter)
+        editor.apply()
         if(counter ==10){
             counter=0
             val intent= Intent(this, SuccessActivity::class.java).apply {
