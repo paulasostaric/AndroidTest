@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/running_abstract"
     tools:context=".SuccessActivity">
 
     <LinearLayout
@@ -16,12 +17,14 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:background="?colorSecondary"
+            android:textColor="?colorOnSecondary"/>
 
         <Button
             android:id="@+id/buttonSend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="SEND" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

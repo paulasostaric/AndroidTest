@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/running_abstract"
     tools:context=".MainActivity"
     tools:ignore="MissingClass">
 
@@ -17,9 +18,11 @@
 
         <TextView
             android:id="@+id/counterView"
-            android:layout_width="129dp"
+            android:layout_width="75dp"
             android:layout_height="22dp"
-            android:text="Hello Hrvoje Cuckovic!" />
+            android:text="Hello You!"
+            android:background="?colorSecondary"
+            android:textColor="?colorOnSecondary"/>
 
         <Button
             android:id="@+id/button"
@@ -41,7 +44,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
+            android:text="Name"
+            android:background="?colorSecondary"
+            android:textColor="?colorOnSecondary"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
